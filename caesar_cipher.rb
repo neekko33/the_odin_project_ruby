@@ -3,8 +3,9 @@ def caesar_cipher(message, shift)
     if !letter.match(/[A-Za-z]/)
       letter
     else
-      smallest_num = letter.match?(/[A-Z]/) ? 'A'.ord : 'a'.ord
-      largest_num = letter.match?(/[A-Z]/) ? 'Z'.ord : 'z'.ord
+      isCap = letter.match(/[A-Z]/)
+      smallest_num = isCap ? 'A'.ord : 'a'.ord
+      largest_num = isCap ? 'Z'.ord : 'z'.ord
       num = letter.ord + shift
       num <= largest_num ? num.chr : (smallest_num + (num - largest_num - 1)).chr
     end
